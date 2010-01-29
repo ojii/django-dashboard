@@ -1,0 +1,44 @@
+{% load i18n contact_tags cms_tags %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ LANGUAGE_CODE }}" lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{% block title %}{% block title_prefix %}{% endblock %}{% block title_extra %}{% endblock %}{% block title_suffix %}{% endblock %}{% endblock %}</title>
+{% block meta_tags %}
+    {% for tag in meta_tags %}{% spaceless %}
+    {{ tag }}
+    {% endspaceless %}
+    {% endfor %}
+{% endblock %}
+{% block css %}	
+	<link href="{{ MEDIA_URL }}css/style.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="{{ MEDIA_URL }}css/print.css" media="print"	rel="stylesheet" type="text/css" />
+{% endblock %}
+{% if site_settings.favicon %}
+    <link rel="Shortcut Icon" type="image/x-icon" href="{{ MEDIA_URL }}{{ site_settings.favicon }}"/>
+{% endif %}
+{% block js %}
+{% endblock %}
+{% plugins_media %}
+{% block extrahead %}{% endblock %}
+</head>
+<body id="{% block tpl_id %}none{% endblock %}" class="{{ LANGUAGE_CODE }}">
+<table id="wrapper">
+<tr><td>
+	<div id="page" class="container_16 clearfix">				
+	  	{% block content %}{% endblock content %}
+	</div>
+</td></tr>
+</table>
+{% if GOOGLE_ANALYTICS_ID %}
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("{{ GOOGLE_ANALYTICS_ID }}");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+{% endif %}
+</body>
+</html>

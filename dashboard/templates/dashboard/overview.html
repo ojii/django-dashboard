@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+
+{% block tpl_id %}tpl_col_two{% endblock %}
+
+{% block content %}
+	<div class="grid_16">
+		{% block page_title %}<h1>{% trans "Overview" %}</h1>{% endblock %}
+	</div>
+    <div id="col1" class="grid_5">
+		{% block col_left %}
+	    	{% placeholder col_left 16_5 %}
+		{% endblock %}
+    </div>
+    <div id="col2" class="grid_11">
+		{% block col_right %}
+			{% placeholder col_right 16_11 %}
+		{% endblock %}
+    </div>
+{% endblock %}
