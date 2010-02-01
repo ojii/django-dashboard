@@ -1,5 +1,5 @@
-<div class="dashboard layout binary-switch">
-<span class="dashboard-description">{{ layout.description }}</span>
-<input type="button" value="{{ layout.text_true }}">
-<input type="button" value="{{ layout.text_false }}">
+<div id="binary-switch-{{ layout.uniqueid }}" class="dashboard-layout binary-switch">
+	<span class="description">{{ layout.description }}</span>
+	<input id="binary-switch-true-{{ layout.uniqueid }}" type="button" value="{{ layout.text_true }}" class="text-true" />
+	<input id="binary-switch-false-{{ layout.uniqueid }}" type="button" value="{{ layout.text_false }}" class="text-false" />
 </div>
